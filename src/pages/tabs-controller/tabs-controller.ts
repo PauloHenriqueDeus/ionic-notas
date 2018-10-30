@@ -15,16 +15,17 @@ export class TabsControllerPage {
   tab2Root: any = NotasPage;
   tab3Root: any = SettingsPage;
 
-  currentRoot: any = this.tab1Root;
+  currentTab: any = NotasPage;
+  editTab: any = null;
   constructor(public navCtrl: NavController) {
   }
 
-  ChangeTab(tab:any) : any{
-    this.currentRoot = tab;
-    console.log(this.currentRoot);
-    return tab;
+  EditTab() : any{
+
+    if (this.currentTab == NotasPage){
+      
+    }
+
   }
-
-
   
 }
