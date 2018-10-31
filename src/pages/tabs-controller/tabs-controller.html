@@ -1,5 +1,5 @@
-<ion-tabs selectedIndex="1" id="tabsController-tabs1">
-  <ion-tab [root]="editTab" tabTitle="Edit" tabIcon="create" id="tabsController-tab1"></ion-tab>
-  <ion-tab [root]="tab2Root" tabTitle="List" tabIcon="list" id="tabsController-tab2"></ion-tab>
-  <ion-tab [root]="tab3Root" tabTitle="Settings" tabIcon="settings" id="tabsController-tab3"></ion-tab>
+<ion-tabs #tabs id="tabsController-tabs1">
+  <ion-tab [root]="tab1Root" [enabled]="editEnable" tabTitle="Edit" tabIcon="create" id="tabsController-tab1"></ion-tab>
+  <ion-tab (ionSelect)="DisableEdit()" [root]="tab2Root" tabTitle="List" tabIcon="list" id="tabsController-tab2"></ion-tab>
+  <ion-tab [root]="tab3Root" [enabled]="configEnable" tabTitle="Settings" tabIcon="settings" id="tabsController-tab3"></ion-tab>
 </ion-tabs>

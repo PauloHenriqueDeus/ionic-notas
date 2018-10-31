@@ -15,15 +15,13 @@
     </ion-buttons>
   </ion-navbar>
 </ion-header>
-<ion-content padding id="page3">
+<ion-content padding id="page3">  
   <ion-list id="notas-list1">
-    <ion-item color="none" id="notas-list-item5">
-      <ion-icon name="ionic" item-left></ion-icon>
-      Item
-    </ion-item>
-    <ion-item color="none" id="notas-list-item4">
-      <ion-icon name="ionic" item-left></ion-icon>
-      Item
-    </ion-item>
+    <ion-item-sliding *ngFor="let nota of notas">
+      <ion-item color="none" on-click="goToNota(nota)">
+        <ion-icon name="ionic" item-left></ion-icon>
+        {{nota.name}}
+      </ion-item>
+    </ion-item-sliding>
   </ion-list>
 </ion-content>
