@@ -2,9 +2,9 @@
 import { Injectable } from '@angular/core';
 import { Nota } from './nota';
 import { AngularFireDatabase } from '../../../node_modules/@angular/fire/database';
-//import { Observable } from '../../../node_modules/rxjs-compat';
 import { AngularFirestore } from '../../../node_modules/@angular/fire/firestore';
 import { subscribeOn } from '../../../node_modules/rxjs/operator/subscribeOn';
+import { Observable } from '../../../node_modules/rxjs';
 
 /*
   Generated class for the DataServiceProvider provider.
@@ -19,30 +19,32 @@ export class DataServiceProvider {
   
   currentNota:Nota;
   constructor(/*public http: HttpClient, */private db: AngularFireDatabase) {
-   // this.notas.push(new Nota(1));
-     let d:Observable<Nota[]> = db.list<Nota>('items').valueChanges();
-     //db.list('items').push(this.notas);
-     //console.log(d);
 
-     d.subscribe(a =>{
-       
-       for (let index = 0; index < a.length; index++) {
-         const element = a[index][0];
+     let d:Observable<Nota[]> = db.list<Nota>('items').valueChanges();
+
+     d.subscribe(a =>{   
+      this.notas.splice(0, this.notas.length);
+      for (let index = 0; index < a.length; index++) {
+         const element = a[index];
          this.notas.push(element);
        }
      });
 
-     console.log('notas', this.notas);
   }
 
   NewNota(){
     let i = 0;
     this.notas.forEach(nota => {
-      if (nota.id > i){
-        i = nota.id;
+      if (nota.id >= i){
+        i = nota.id+1;
       }
     });
-    this.notas.push(new Nota(i));
+    let nota;
+
+    //this.notas.push(nota = new Nota(i));
+    this.db.list<Nota>('items').push(new Nota(i));
+
+    console.log("Push new nota");
   }
 
   SelectNota(id:number){

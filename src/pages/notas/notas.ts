@@ -22,4 +22,12 @@ export class NotasPage {
     TabsControllerPage.controller.EditNote();
     //this.navCtrl.push(NotaPage);
   }
+
+  AddNota(){
+    console.log("AddNota()");
+    this.data.NewNota();
+    this.notas = this.data.notas;
+    console.log(this.notas);
+
+  }
 }
