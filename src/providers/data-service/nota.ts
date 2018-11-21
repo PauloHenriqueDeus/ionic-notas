@@ -4,6 +4,7 @@ export class Nota{
     data:number;
   
     id = 0;
+    dataBaseKey:string;
     
     constructor(id:number){
       this.id = id;

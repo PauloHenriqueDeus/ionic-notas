@@ -1,3 +1,38 @@
 page-nota {
 
 }
+
+#textNota{
+    font-size: 20px;
+    margin-top:0px;
+    color:#000000;
+
+    overflow: inherit ;
+    text-overflow: inherit ;
+    white-space: wrap ;
+}
+
+#notaInput{
+    width: calc(100% - 10px);
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+}
+
+#textContainer{
+    width: calc(100% - 10px);
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+
+    overflow: initial ;
+    text-overflow: clip ;
+    white-space: normal ;
+
+}
+
+.textArea{
+    font-size: 20px;
+    margin-top:0px;
+    color:#000000;
+}

@@ -17,18 +17,16 @@
 </ion-header>
 <ion-content padding id="page2">
   <ion-card id="nota-card21">
-    <ion-list [ngSwitch]="editing">
-      <ion-item id="nota-list-item-container2" on-click="Edit()" *ngSwitchDefault>
-        <div id="nota-markdown3" class="show-list-numbers-and-dots">
-          <p style="margin-top:0px;color:#000000;">
-            {{text}}
-          </p>
+    <ion-list>
+      <ion-item id="nota-list-item-container2" on-click="Edit()" [hidden]="editing">
+        <div id="textContainer" #textContainer class="textArea">
+          {{text}}
         </div>
       </ion-item>
       
       <form id="nota-form5" >
-        <ion-item id="nota-input5" *ngSwitchCase="true">
-          <ion-input type="text" placeholder="" [(ngModel)]="editText" [ngModelOptions]="{standalone: true}"></ion-input>
+        <ion-item id="nota-input5" [hidden]="!editing">
+          <textarea id="notaInput" class="textArea" #notaInput type="text" placeholder="" rows="1" maxLength="500" (input)="ResizeInput()" clearInput [(ngModel)]="editText" [ngModelOptions]="{standalone: true}"></textarea>
         </ion-item>
       </form>
     </ion-list>
